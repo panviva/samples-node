@@ -1,14 +1,17 @@
 const { PanvivaClient, ResourceApiKeys} = require('@panviva/node-sdk');
-const {endpoint, instance, Key , id} = require('./config');
+const {endpoint, instance, key , id} = require('./config');
 
 const panvivaClient = new PanvivaClient(instance, endpoint);
+panvivaClient.setApiKey(ResourceApiKeys.apiKeyHeader, key);
 
-panvivaClient.setApiKey(ResourceApiKeys.apiKeyHeader, Key);
+const mergeDoc = async () => {
+  const doc = await panvivaClient.getDocumentById(id)
+  const containers = await panvivaClient.getDocumentByIdContainers(id)
+  return {...doc.body, ...containers.body}
+}
 
-panvivaClient.getDocumentById(id).then((response) => {
-  
-  for (key in response.body){
-    console.log(key,response.body[key]);
-  }
-
-}).catch((ex) => console.error(ex));
+mergeDoc()
+  .then(response => {
+    for(responseKey in response)
+      console.log(responseKey, response[responseKey])
+  })
