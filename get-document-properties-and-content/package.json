@@ -1,0 +1,17 @@
+{
+  "name": "get-document-properties-and-content-as-plaintext",
+  "version": "1.0.0",
+  "description": "A simple node.js example to show how to get the metadata and content of a document from Panviva's APIs, utilizing GET Document and GET Document Containers",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Panviva",
+  "license": "ISC",
+  "dependencies": {
+    "@panviva/node-sdk": "^2.0.7",
+    "dotenv": "^8.2.0"
+  }
+}
