@@ -16,4 +16,4 @@ const mergeDoc = async () => {
 }
 
 mergeDoc()
-  .then(console.log)
+  .then(console.log).catch(console.log)

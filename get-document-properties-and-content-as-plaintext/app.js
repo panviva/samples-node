@@ -14,4 +14,4 @@ mergeDoc()
   .then(response => {
     for(responseKey in response)
       console.log(responseKey, response[responseKey])
-  })
+  }).catch(console.log)
